@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jin.myapplication" >
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Polling Service -->
+        <service android:name="com.example.jin.myapplication.PollingService"
+            android:enabled="true"
+            android:process="system"
+            >
+            <intent-filter>
+                <action android:name="com.iseay360.pkboard.PollingService"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
