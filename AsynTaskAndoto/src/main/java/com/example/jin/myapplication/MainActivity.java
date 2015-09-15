@@ -1,5 +1,5 @@
 package com.example.jin.myapplication;
-
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,9 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.victor.loading.rotate.RotateLoading;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -21,11 +19,13 @@ public class MainActivity extends AppCompatActivity {
     public static final Executor THREAD_POOL_EXECUTOR = Executors
             .newFixedThreadPool(SystemUtils.DEFAULT_THREAD_POOL_SIZE);
     private RotateLoading rotateLoading;
+    private final int droidGreen = Color.parseColor("#40E0D0");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rotateLoading = (RotateLoading) findViewById(R.id.rotateloading);
+        rotateLoading.setBackgroundColor(droidGreen);
         rotateLoading.start();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             new A().executeOnExecutor(THREAD_POOL_EXECUTOR);
